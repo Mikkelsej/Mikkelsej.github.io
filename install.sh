@@ -16,4 +16,11 @@ git clone "$REPO_URL" "$CLONE_DIR"
 echo "Switching config..."
 nix run nixpkgs#home-manager -- switch -b backup --flake ~/home-manager#mikke
 
+if command -v zsh >/dev/null; then
+  echo "Setting Zsh as the default shell..."
+  chsh -s "$(command -v zsh)"
+else
+  echo "Zsh is not installed — skipping chsh"
+fi
+
 echo "Done!"
