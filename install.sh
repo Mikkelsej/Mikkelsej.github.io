@@ -16,11 +16,20 @@ git clone "$REPO_URL" "$CLONE_DIR"
 echo "Switching config..."
 nix run nixpkgs#home-manager -- switch -b backup --flake ~/home-manager#mikke
 
-if command -v zsh >/dev/null; then
-  echo "Setting Zsh as the default shell..."
-  chsh -s "$(command -v zsh)"
+ZSH_PATH="$HOME/.nix-profile/bin/zsh"
+
+if [ -x "$ZSH_PATH" ]; then
+  # Ensure Zsh path is listed in /etc/shells
+  if ! grep -Fxq "$ZSH_PATH" /etc/shells; then
+    echo "Adding $ZSH_PATH to /etc/shells (needs sudo)..."
+    echo "$ZSH_PATH" | sudo tee -a /etc/shells
+  fi
+
+  echo "Setting default shell to Zsh..."
+  chsh -s "$ZSH_PATH"
 else
-  echo "Zsh is not installed — skipping chsh"
+  echo "Zsh not found at $ZSH_PATH"
 fi
+
 
 echo "Done!"
