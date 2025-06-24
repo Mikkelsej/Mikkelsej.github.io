@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://github.com/Mikkelsej/wsl-nix.git"
+REPO_URL="https://github.com/Mikkelsej/home-manager.git"
 CLONE_DIR="$HOME/home-manager"
 
 echo "Installing Nix..."
