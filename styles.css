@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f2937;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1em;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.page-section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.center-message {
+  text-align: center;
+  color: #888;
+  font-size: 1.3em;
+}
+
+.script-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.code-container {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #eee;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.copy-btn:hover {
+  background: #ddd;
+}
+
+.script-box pre {
+  background-color: #f3f3f3;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 4px;
+}
