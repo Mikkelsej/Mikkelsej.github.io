@@ -39,19 +39,16 @@ def insert_import_after_hardware_config(config_path, import_path):
         f.writelines(lines)
 
 def main():
-    # 1. Write temp.nix
     print(f"[INFO] Writing {TEMP_NIX_PATH}")
     with open(TEMP_NIX_PATH, "w") as f:
         f.write(TEMP_NIX_CONTENT)
 
-    # 2. Patch configuration.nix
     if not file_contains(CONFIG_PATH, "temp.nix"):
         print(f"[INFO] Patching {CONFIG_PATH} to import temp.nix")
         insert_import_after_hardware_config(CONFIG_PATH, "./temp.nix")
     else:
         print(f"[INFO] temp.nix already imported in {CONFIG_PATH}")
 
-    # 3. Rebuild the system
     print("[INFO] Running nixos-rebuild switch...")
     subprocess.run(["sudo", "nixos-rebuild", "switch"], check=True)
 
