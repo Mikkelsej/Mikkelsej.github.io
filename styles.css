@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Jetbrains Mono, sans-serif;
   background-color: #f7f7f7;
 }
 
@@ -37,16 +37,18 @@ body {
 
 .center-message {
   text-align: center;
-  color: #888;
+  color: #000000;
   font-size: 1.3em;
 }
 
 .script-box {
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: small;
+  user-select: all;
 }
 
 .code-container {
