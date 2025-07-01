@@ -14,7 +14,7 @@ git clone https://github.com/Mikkelsej/nixos.git
 echo "[INFO] Copying hardware-configuration.nix..."
 cp /etc/nixos/hardware-configuration.nix nixos/hosts/galaxybook/
 
-echo "[INFO] Replacing /etc/nixos with symlink to flake setup (optional)..."
+echo "[INFO] Removing old configuration files ..."
 sudo rm -rf /etc/nixos/
 
 echo "[INFO] Running nixos-rebuild with flake..."
