@@ -17,4 +17,4 @@ cp /etc/nixos/hardware-configuration.nix nixos/hosts/galaxybook/
 
 sudo rm -rf /etc/nixos/
 
-sudo nixos-rebuild switch --flake "path:nixos/#galaxybook"
+sudo nixos-rebuild switch --flake "path:nixos/#galaxybook" --install-bootloader
