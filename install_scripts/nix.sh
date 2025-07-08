@@ -40,7 +40,7 @@ else
   git clone "$REPO_URL" "$CLONE_DIR"
 
   echo "Switching config..."
-  nix run nixpkgs#home-manager --switch -b backup --flake ~/nix#mikke
+  nix run nixpkgs#home-manager -- switch -b backup --flake ~/nix#mikke
 
   ZSH_PATH="$HOME/.nix-profile/bin/zsh"
 
