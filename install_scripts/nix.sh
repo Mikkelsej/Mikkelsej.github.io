@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+REPO_URL="https://github.com/Mikkelsej/nix.git"
+CLONE_DIR="$HOME/nix"
+
 # Function to detect NixOS
 is_nixos() {
   [[ -f /etc/os-release ]] && grep -q '^ID=nixos' /etc/os-release
@@ -11,7 +14,7 @@ if is_nixos; then
 
   echo "[INFO] Cloning Repo ..."
   nix-shell -p git --run '
-    git clone https://github.com/Mikkelsej/nixos.git
+    git clone "$REPO_URL" "$CLONE_DIR"
   '
 
   echo "[INFO] Copying hardware-configuration.nix..."
@@ -26,9 +29,6 @@ if is_nixos; then
 
 else
   echo "[INFO] Non-NixOS system detected. Proceeding with Nix installation and home-manager setup..."
-
-  REPO_URL="https://github.com/Mikkelsej/home-manager.git"
-  CLONE_DIR="$HOME/home-manager"
 
   echo "Installing Nix..."
   curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
