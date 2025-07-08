@@ -18,7 +18,7 @@ if is_nixos; then
   '
 
   echo "[INFO] Copying hardware-configuration.nix..."
-  cp /etc/nixos/hardware-configuration.nix nixos/hosts/galaxybook/
+  cp /etc/nixos/hardware-configuration.nix nix/hosts/galaxybook/
 
   echo "[INFO] Running nixos-rebuild with flake..."
   sudo nixos-rebuild switch --flake "path:nixos/#galaxybook" --install-bootloader
@@ -40,7 +40,7 @@ else
   git clone "$REPO_URL" "$CLONE_DIR"
 
   echo "Switching config..."
-  nix run nixpkgs#home-manager -- switch -b backup --flake ~/home-manager#mikke
+  nix run nixpkgs#home-manager --switch -b backup --flake ~/nix#mikke
 
   ZSH_PATH="$HOME/.nix-profile/bin/zsh"
 
