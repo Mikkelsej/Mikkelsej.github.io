@@ -13,15 +13,15 @@ if is_nixos; then
   echo "[INFO] Detected NixOS."
 
   echo "[INFO] Cloning Repo ..."
-  nix-shell -p git --run '
-    git clone "$REPO_URL" "$CLONE_DIR"
-  '
+  nix-env -iA nixos.git
+  
+  git clone "$REPO_URL" "$CLONE_DIR"
 
   echo "[INFO] Copying hardware-configuration.nix..."
   cp /etc/nixos/hardware-configuration.nix nix/hosts/galaxybook/
 
   echo "[INFO] Running nixos-rebuild with flake..."
-  sudo nixos-rebuild switch --flake "path:nixos/#galaxybook" --install-bootloader
+  sudo nixos-rebuild switch --flake "path:nix/#galaxybook" --install-bootloader
 
   echo "[DONE]"
 
