@@ -17,6 +17,8 @@ if is_nixos; then
   
   git clone "$REPO_URL" "$CLONE_DIR"
 
+  nix-env -e git
+
   echo "[INFO] Copying hardware-configuration.nix..."
   cp /etc/nixos/hardware-configuration.nix nix/hosts/galaxybook/
 
